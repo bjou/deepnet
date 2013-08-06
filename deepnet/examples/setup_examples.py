@@ -5,7 +5,7 @@ import os.path
 import sys
 
 def MakeDataPbtxt(data_pbtxt_file, data_path):
-  data_pbtxt = util.ReadData('mnist.pbtxt')
+  data_pbtxt = util.ReadData(data_pbtxt_file)
   for data in data_pbtxt.data:
     fname = os.path.basename(data.file_pattern)
     data.file_pattern = os.path.join(data_path, fname)
@@ -39,7 +39,7 @@ def MakeModels(model_file, output_path):
 def main():
   data_path = os.path.abspath(sys.argv[1])  # Path to mnist data directory.
   output_path = os.path.abspath(sys.argv[2])  # Path where learned models will be written.
-
+    
   data_pbtxt_file = os.path.join(data_path, 'mnist.pbtxt')
   MakeDataPbtxt(data_pbtxt_file, data_path)
 
