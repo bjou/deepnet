@@ -1,3 +1,4 @@
+CUDA_LIB = '/usr/local/cuda-5.0/lib'
 
 cudamat:
 	nvcc -O --ptxas-options=-v --compiler-options '-fPIC' -o libcudamat.so --shared cudamat.cu cudamat_kernels.cu -lcublas -L$(CUDA_LIB)

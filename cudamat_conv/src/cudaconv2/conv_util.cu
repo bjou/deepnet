@@ -1195,7 +1195,8 @@ void convLocalMaxUndo(NVMatrix& images, NVMatrix& maxGrads, NVMatrix& maxActs, N
         }
     }
 
-    cutilCheckMsg("convLocalMaxUndo: kernel execution failed");
+    //cutilCheckMsg("convLocalMaxUndo: kernel execution failed");
+    getLastCudaError("convLocalMaxUndo: kernel execution failed");
 }
 
 /*
@@ -1257,7 +1258,8 @@ void convLocalMaxUndoCu(cudamat* images, cudamat* maxGrads, cudamat* maxActs, cu
         }
     }
 
-    cutilCheckMsg("convLocalMaxUndo: kernel execution failed");
+    //cutilCheckMsg("convLocalMaxUndo: kernel execution failed");
+    getLastCudaError("convLocalMaxUndo: kernel execution failed");
 }
 
 void convLocalAvgUndo(NVMatrix& avgGrads, NVMatrix& target, int subsX, int startX, int strideX, int outputsX, int imgSize) {
@@ -1314,7 +1316,8 @@ void convLocalAvgUndo(NVMatrix& avgGrads, NVMatrix& target,
         }
     }
 
-    cutilCheckMsg("convLocalAvgUndo: kernel execution failed");
+    //cutilCheckMsg("convLocalAvgUndo: kernel execution failed");
+    getLastCudaError("convLocalAvgUndo: kernel execution failed");
 }
 
 /*
@@ -1371,7 +1374,8 @@ void convLocalAvgUndoCu(cudamat* avgGrads, cudamat* target,
         }
     }
 
-    cutilCheckMsg("convLocalAvgUndo: kernel execution failed");
+    //cutilCheckMsg("convLocalAvgUndo: kernel execution failed");
+    getLastCudaError("convLocalAvgUndo: kernel execution failed");
 }
 
 void convResponseNormCu(cudamat* images, cudamat* denoms, cudamat* target, int numFilters, int sizeX, float addScale, float powScale) {
@@ -1525,7 +1529,8 @@ void convContrastNorm(NVMatrix& images, NVMatrix& meanDiffs, NVMatrix& denoms, N
             }
         }
     }
-    cutilCheckMsg("convResponseNorm: kernel execution failed");
+    //cutilCheckMsg("convResponseNorm: kernel execution failed");
+    getLastCudaError("convResponseNorm: kernel execution failed");
 }
 
 
@@ -1666,7 +1671,8 @@ void convContrastNormCu(cudamat* images, cudamat* meanDiffs, cudamat* denoms, cu
             }
         }
     }
-    cutilCheckMsg("convResponseNorm: kernel execution failed");
+    //cutilCheckMsg("convResponseNorm: kernel execution failed");
+    getLastCudaError("convResponseNorm: kernel execution failed");
 }
 
 
@@ -1786,7 +1792,8 @@ void convResponseNormUndo(NVMatrix& outGrads, NVMatrix& denoms, NVMatrix& inputs
     }
 
 
-    cutilCheckMsg("kRNormUndo: kernel execution failed");
+    //cutilCheckMsg("kRNormUndo: kernel execution failed");
+    getLastCudaError("kRNormUndo: kernel execution failed");
 }
 void convResponseNormUndoCu(cudamat* outGrads, cudamat* denoms, cudamat* inputs, cudamat* acts, cudamat* target, int numFilters,
                          int sizeX, float addScale, float powScale, float scaleTargets, float scaleOutput) {
@@ -1885,5 +1892,6 @@ void convResponseNormUndoCu(cudamat* outGrads, cudamat* denoms, cudamat* inputs,
     }
 
 
-    cutilCheckMsg("kRNormUndo: kernel execution failed");
+    //cutilCheckMsg("kRNormUndo: kernel execution failed");
+    getLastCudaError("kRNormUndo: kernel execution failed");
 }

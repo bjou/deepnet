@@ -1268,7 +1268,8 @@ void _imgActs(NVMatrix& hidActs, NVMatrix& filters, NVMatrix& targets,
         }
     }
     
-    cutilCheckMsg("imgActs: kernel execution failed");
+    //cutilCheckMsg("imgActs: kernel execution failed");
+    getLastCudaError("imgActs: kernel execution failed");
 }
 
 /*
@@ -1651,7 +1652,8 @@ extern "C" void _imgActsCu(cudamat* hidActs, cudamat* filters, cudamat* targets,
         }
     }
     
-    cutilCheckMsg("imgActs: kernel execution failed");
+    //cutilCheckMsg("imgActs: kernel execution failed");
+    getLastCudaError("imgActs: kernel execution failed");
 }
 
 void convImgActs(NVMatrix& hidActs, NVMatrix& filters, NVMatrix& targets,
@@ -1939,7 +1941,8 @@ void _imgActsSparse(NVMatrix& hidActs, NVMatrix& filters, NVMatrix& targets, int
         }
     }
     
-    cutilCheckMsg("imgActsSparse: kernel execution failed");
+    //cutilCheckMsg("imgActsSparse: kernel execution failed");
+    getLastCudaError("imgActsSparse: kernel execution failed");
 }
 
 void convImgActsSparse(NVMatrix& hidActs, NVMatrix& filters, NVMatrix& targets, int* dColorIndices,

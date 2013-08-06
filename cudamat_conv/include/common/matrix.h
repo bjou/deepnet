@@ -27,11 +27,11 @@
 #ifndef MATRIX_H_
 #define MATRIX_H_
 
-#include <matrix_funcs.h>
 #ifdef NUMPY_INTERFACE
 #include <Python.h>
 #include <arrayobject.h>
 #endif
+#include <matrix_funcs.h>
 #include <limits>
 #include <assert.h>
 #include <stdio.h>
